@@ -3,7 +3,6 @@
 在提交前找出 Markdown 中失效的本地图片、文档、附件和标题锚点。需要 Python 3.9 或更新版本，仅使用标准库，运行时不访问网络。
 
 ## 用法
-
 ```sh
 python3 readme_ref_check.py README.md
 python3 readme_ref_check.py --root . --json README.md docs/usage.md
@@ -20,6 +19,8 @@ python3 readme_ref_check.py --root . --json README.md docs/usage.md
 - 跳过识别出的代码块和行内代码，不联网验证外部链接。对非 Markdown 文件只检查目标是否存在，不验证片段，例如 PDF 的 `#page=2`。
 
 检查器不是完整的 Markdown 渲染器。复杂的嵌套语法和特定平台生成的锚点可能与渲染结果不同。检查跨文档锚点时不会递归检查目标文档里的链接。
+
+检查器读取当前工作区，不检查 Git 暂存区或提交。即使检查通过，发布前也要确认引用目标已纳入拟提交的版本。
 
 ## 试跑示例
 
